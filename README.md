@@ -3,6 +3,7 @@
 ![Cover Photo](./images/ic-705_and_interface.JPG)
 
 This project was done as a learning exercise for me, and a way to have some fun. I wanted to use my IC-705 with just an iPhone to drive digital mode communications, but limitations of both the radio and the phone meant things like straight USB or Bluetooth wouldn't work. There is a solution path with WiFi-based software, but I didn't want to be locked into a single app (even though I use it on my iPad and find it very good).
+The result is a minimal solution that is ideal for remote or portable operation (such as POTA or SOTA) with iOS.
 
 All said and done, I have got this working with iFTx to successfully complete QSOs!
 
