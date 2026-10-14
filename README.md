@@ -1,6 +1,6 @@
 # IC-705 Audio Interface
 
-![Cover Photo](images/ic-705_and_interface.jpg)
+![Cover Photo](./images/ic-705_and_interface.jpg)
 
 This project was done as a learning exercise for me, and a way to have some fun. I wanted to use my IC-705 with just an iPhone to drive digital mode communications, but limitations of both the radio and the phone meant things like straight USB or Bluetooth wouldn't work. There is a solution path with WiFi-based software, but I didn't want to be locked into a single app (even though I use it on my iPad and find it very good).
 
@@ -54,7 +54,7 @@ The output capacitor that goes inline with the IC-705 mic input was left off the
 [3D printable case files](https://www.printables.com/model/1877246-ic-705-audio-interface-box)
 
 Below is an image of the cable routing and capacitor placement. It is done this way for strain relief. 
-![Cable Routing Photo](images/interface_wire_routing.JPG)
+![Cable Routing Photo](./images/interface_wire_routing.JPG)
 
 After assembly, tune the trim pots so that the MIC input for the IC-705 reaches 50 mVpp while calling CQ.
 
