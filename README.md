@@ -1,6 +1,6 @@
 # IC-705 Audio Interface
 
-![Cover Photo](./images/ic-705_and_interface.jpg)
+![Cover Photo](./images/ic-705_and_interface.JPG)
 
 This project was done as a learning exercise for me, and a way to have some fun. I wanted to use my IC-705 with just an iPhone to drive digital mode communications, but limitations of both the radio and the phone meant things like straight USB or Bluetooth wouldn't work. There is a solution path with WiFi-based software, but I didn't want to be locked into a single app (even though I use it on my iPad and find it very good).
 
@@ -8,7 +8,7 @@ All said and done, I have got this working with iFTx to successfully complete QS
 
 Digirig? Yes, that could have been the solution. Again, the hobby for me is about building and learning. I'm also not sure if it will work properly for driving the MIC input to the IC-705 at the right level when paired with an iOS device.
 
-The basis for the design is an [example circuit](images/Icom_example_interface.jpg) that Icom provides in their advanced manual. Addition of a capacitor on the MIC line is required to create a high resistance path to not activate PTT (the IC-705 uses the same pin for both MIC input and PTT).
+The basis for the design is an [example circuit](images/Icom_example_interface.JPG) that Icom provides in their advanced manual. Addition of a capacitor on the MIC line is required to create a high resistance path to not activate PTT (the IC-705 uses the same pin for both MIC input and PTT).
 
 In the end, this device is an audio level shifter with isolation. It can be used with any device (PC, tablet, phone) that has an analog audio input (microphone or line in) and an analog audio output. Just tune the trim pots to hit the levels you need.
 
