@@ -1730,6 +1730,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "https://github.com/project802/ic-705_audio_interface"
+		(exclude_from_sim no)
+		(at 231.902 173.99 0)
+		(effects
+			(font
+				(size 1.778 1.778)
+			)
+		)
+		(uuid "e9dbba44-c6b0-46ff-aea5-31a67e096cde")
+	)
 	(junction
 		(at 101.6 80.01)
 		(diameter 0)
