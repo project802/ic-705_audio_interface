@@ -2,20 +2,42 @@
 
 ![Cover Photo](./images/ic-705_and_interface.JPG)
 
-This project was done as a learning exercise for me, and a way to have some fun. I wanted to use my IC-705 with just an iPhone to drive digital mode communications, but limitations of both the radio and the phone meant things like straight USB or Bluetooth wouldn't work. There is a solution path with WiFi-based software, but I didn't want to be locked into a single app (even though I use it on my iPad and find it very good).
+This project was done as a learning exercise for me, and a way to have some fun. I wanted to use my IC-705 with just an iPhone to drive digital mode communications, but limitations of both the radio and the phone meant things like straight USB or Bluetooth wouldn't work. There is a solution path with WiFi-based software or a Digirig, but I didn't want to be locked into a single app (even though I use it on my iPad and find it very good) or buy hardware when I thought I could make something myself and learn.
+
 The result is a minimal solution that is ideal for remote or portable operation (such as POTA or SOTA) with iOS.
 
 All said and done, I have got this working with iFTx to successfully complete QSOs!
 
-Digirig? Yes, that could have been the solution. Again, the hobby for me is about building and learning. I'm also not sure if it will work properly for driving the MIC input to the IC-705 at the right level when paired with an iOS device.
-
-The basis for the design is an [example circuit](images/Icom_example_interface.JPG) that Icom provides in their advanced manual. Addition of a capacitor on the MIC line is required to create a high resistance path to not activate PTT (the IC-705 uses the same pin for both MIC input and PTT).
-
-In the end, this device is an audio level shifter with isolation. It can be used with any device (PC, tablet, phone) that has an analog audio input (microphone or line in) and an analog audio output. Just tune the trim pots to hit the levels you need.
+In the end, this device is just an audio level shifter with isolation. It can be used with any device (PC, tablet, phone) that has an analog audio input (microphone or line in) and an analog audio output. Just tune the trim pots to hit the voltage levels you need.
 
 Have a PC? Just use the built-in USB functionality or Wi-Fi interface. This adds no value, whatsoever, over those options. This is really for phones using inexpensive (or free) apps that require VOX activation.
 
+## (Non-)Solution Problem Space
+
+### USB Cable or Bluetooth
+
+The radio presents a BT/USB interface to the iOS device, but there are two issues that prevent this from working:
+- iOS does not allow for serial port interfaces over USB or BT so an app can't control PTT via the CAT interface. Even with serial port support, this may reduce the number of app choices to ones that specifically support CAT.
+- IC-705 doesn't do VOX over USB or BT so we can't just send audio. Icom...come on! The firmware for this is *so tiny*!
+
+There are also reports that the IC-705 has poor RFI rejection via USB so depending on what is plugged in, this could make digital mode operation difficult.
+
+You can theoretically make these interfaces work if you manually activate PTT. That doesn't sound fun.
+
+### Digirig
+
+This is a valid solution. Cost is approximately $45 for a Digirig Lite and I'd estimate $20 (if you can buy individual parts) to make an adapter cable for the IC-705. I still can't confirm if the output levels to the radio are proper, but at least one person has said it functionally works.
+
+https://forum.digirig.net/t/cable-for-icom-ic-705-and-mobile-ft8/10725
+
+### Wi-Fi 
+
+The app SDR-Control does work, but it is sold separately for iPhone and iPad. You would be nearly $100 into software to run on both devices. Its the best solution, objectively, but is costly and locks you into an app. If you change the radio, the app is useless. I happen to like how it works on my iPad, but I've seen some impressive work from other developers in the $2 to $4 range.
+
+
 ## Design Notes
+
+The basis for the design is an [example circuit](images/Icom_example_interface.JPG) that Icom provides in their advanced manual. Addition of a capacitor on the MIC line is required to create a high resistance path to not activate PTT (the IC-705 uses the same pin for both MIC input and PTT).
 
 Design files (PCB, schematic) can be found in the [KiCad directory](KiCad/).
 
@@ -30,7 +52,7 @@ The methodology was:
 1. Set MIC gain to 50% (default level)
 1. Adjust the trim pot until the meter hits 100%
 
-I've observed about 0.7 dB of rolloff at 200 Hz vs 3000 Hz (could be the soundcard, could be the interface, I haven't looked harder), so that's why using the upper part of the sideband is good for setting max power level.
+I've observed about 0.7 dB of rolloff at 200 Hz vs 3000 Hz (could be the soundcard, could be the interface, I haven't looked harder), so that's why using the upper part of the sideband is good for setting max power level. The good news is that FT8 and FT4 use 500 Hz or higher offsets, so the rolloff shouldn't affect performance.
 
 I landed on AF GAIN = 30 as that seems to be the highest value before output clipping occurs.
 
