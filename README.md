@@ -91,7 +91,7 @@ At the time of writing, the total component cost was $14.50 and the PCB was $1.2
 IC-705:
 - MIC gain = 50% (default)
 - COMP = 5 (default)
-- VOX gain = 50% (default)
+- VOX gain = 50% (default) but move up if VOX is intermittent
 - ANTI VOX = 50% (default)
 - Delay = 0.0s
 - Voice delay = OFF (default)
@@ -103,3 +103,11 @@ IC-705:
 iOS:
 - Put the phone to silent mode. ALL sounds will make its way to the radio, so silent mode enabled to prevent your TX from getting in trouble when you get a notification.
 - Turn the volume all the way up (which should have been where it was when you tuned the trim pots).
+
+## Application Specific Settings
+
+iFTx:
+- Seems to work well out of the box
+
+Greyline FT8
+- Set the "Drive" slider to -10 dB. ALC should barely register at -9 dB and not register at -10 dB. There is a ton of harmonic and high freq noise at the default settings of 0 dB.
