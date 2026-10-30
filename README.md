@@ -54,7 +54,7 @@ The methodology was:
 
 I landed on AF GAIN = 30 as that seems to be the highest value before output clipping occurs.
 
-Below is the response of the audio interface when stimulated with a signal at the device output and captured at the radio mic input. It is very linear and only drops around 0.5 dB @ 200 Hz, which fits the FT8 use case very well. The radio filter(s) will attenuate much more aggressively in the lower sections of the sideband, so look out for loss of power below 600 Hz or so.
+Below is the response of the audio interface when stimulated with a signal at the device output and captured at the radio mic input. It is very linear and only drops around 0.5 dB @ 200 Hz, which fits the FT8/4 use case very well. The radio filter(s) will attenuate much more aggressively in the lower sections of the sideband, so look out for loss of power.
 
 ![Filter Frequency Response](./images/freq_response.png)
 
@@ -106,10 +106,11 @@ iOS:
 - Put the phone to silent mode. ALL sounds will make its way to the radio, so silent mode enabled to prevent your TX from getting in trouble when you get a notification.
 - Turn the volume all the way up (which should have been where it was when you tuned the trim pots).
 
-## Application Specific Settings
+## Application Specific Settings and Build Notes
 
 iFTx:
 - Seems to work well out of the box
 
 Greyline FT8
-- Set the "Drive" slider to -10 dB. ALC should barely register at -9 dB and not register at -10 dB. There is a ton of harmonic and high freq noise at the default settings of 0 dB.
+- Set the "Drive" slider to -1 dB before tuning the hardware interface gain. I have a theory that iOS is doing funky things with full scale signals (regardless of volume slider position) that even just -1 dB has been shown to lower THD by half and the noise floor on the transmitted signal by 20 dB. 
+- Make sure you take the audio signal from the left channel. 1.6 and newer have mono audio data and the right channel is optionally fed with a tone for PTT/VOX circuits.
