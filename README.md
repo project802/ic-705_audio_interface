@@ -6,7 +6,7 @@ This project was done as a learning exercise for me, and a way to have some fun.
 
 The result is a minimal solution that is ideal for remote or portable operation (such as POTA or SOTA) with iOS.
 
-All said and done, I have got this working with iFTx to successfully complete QSOs!
+All said and done, I have got this working with iFTx and Greyline FT8 to successfully complete QSOs!
 
 In the end, this device is just an audio level shifter with isolation. It can be used with any device (PC, tablet, phone) that has an analog audio input (microphone or line in) and an analog audio output. Just tune the trim pots to hit the voltage levels you need.
 
@@ -52,9 +52,11 @@ The methodology was:
 1. Set MIC gain to 50% (default level)
 1. Adjust the trim pot until the meter hits 100%
 
-I've observed about 0.7 dB of rolloff at 200 Hz vs 3000 Hz (could be the soundcard, could be the interface, I haven't looked harder), so that's why using the upper part of the sideband is good for setting max power level. The good news is that FT8 and FT4 use 500 Hz or higher offsets, so the rolloff shouldn't affect performance.
-
 I landed on AF GAIN = 30 as that seems to be the highest value before output clipping occurs.
+
+Below is the response of the audio interface when stimulated with a signal at the device output and captured at the radio mic input. It is very linear and only drops around 0.5 dB @ 200 Hz, which fits the FT8 use case very well. The radio filter(s) will attenuate much more aggressively in the lower sections of the sideband, so look out for loss of power below 600 Hz or so.
+
+![Filter Frequency Response](./images/freq_response.png)
 
 ## Assembly Notes
 
